@@ -1,0 +1,11 @@
+NAME_1 = "Феврония"
+SURNAME_1 = "Бажова"
+ADRESS_1 = "Усачева, 24"
+METRO_STATION_1 = "Преображенская площадь"
+PHONE_NUMBER_1 = "89998884455"
+
+NAME_2 = "Добрыня"
+SURNAME_2 = "Одинцов"
+ADRESS_2 = "Варварка, 4"
+METRO_STATION_2 = "Сокольники"
+PHONE_NUMBER_2 = "89998884411"
