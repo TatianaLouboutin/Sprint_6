@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 import settings
-from pages.base_page import BasePageScooter
 from pages.order_page import OrderPageScooter
 from locators.locators import ScooterLocators
 import allure
@@ -32,24 +31,22 @@ class TestOrderPageScooter():
     @allure.title("Редирект на страницу самоката")
     @allure.description("Нажататие лого Самоката ведет на страницу самоката")
     def test_order_page_first_set_click_image_scooter(self, driver):
-        basepage = BasePageScooter(driver)
         orderpage = OrderPageScooter(driver)
         orderpage.do_first_order(driver)
         WebDriverWait(driver,3).until(expected_conditions.visibility_of_element_located(ScooterLocators.header_order_ready))
         orderpage.click_button_status(driver)
-        basepage.click_link_scooter(driver)
+        orderpage.click_link_scooter(driver)
         assert driver.current_url == settings.URL
 
 
     @allure.title("Редирект на Дзен")
     @allure.description("Редирект на Дзен")
     def test_order_page_second_set_click_logo(self, driver):
-        basepage = BasePageScooter(driver)
         orderpage = OrderPageScooter(driver)
         orderpage.do_second_order(driver)
         WebDriverWait(driver,3).until(expected_conditions.visibility_of_element_located(ScooterLocators.header_order_ready))
         orderpage.click_button_status(driver)
-        basepage.click_link_logo(driver)
+        orderpage.click_link_logo(driver)
         driver.switch_to.window(driver.window_handles[-1])
         WebDriverWait(driver,3).until(expected_conditions.visibility_of_element_located(ScooterLocators.button_dzen))
         assert  driver.current_url == settings.DZEN
